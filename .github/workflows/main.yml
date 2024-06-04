@@ -1,23 +1,20 @@
 name: deploy the static website to AWS-S3
 on:
-  push:
-    branches:
-      - main  # Adjust the branch name as needed
+ push:
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Set up AWS CLI
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-south-1  # Updated to ap-south-1 region
-      - name: Move existing content to build_old folder
-        run: |
-          aws s3 mv s3://auto.yecor.com s3://auto.yecor.com/build_old --recursive
-      - name: Deploy new content to AWS S3
-        run: |
-          aws s3 sync . s3://auto.yecor.com --delete
+ deploy:
+   runs-on: ubuntu-latest
+   steps:
+     - name: Checkout repository
+       uses: actions/checkout@v2
+
+
+     - name: Set up AWS CLI
+       uses: aws-actions/configure-aws-credentials@v1
+       with:
+         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+         aws-region: us-east-1
+     - name: Deploy to AWS S3
+       run: |
+         aws s3 sync . s3://auto.yecor.com  --delete
