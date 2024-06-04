@@ -2,7 +2,7 @@ name: deploy the static website to AWS-S3
 on:
   push:
     branches:
-      - main  # Adjust the branch name as needed
+      - main  
 
 jobs:
   deploy:
