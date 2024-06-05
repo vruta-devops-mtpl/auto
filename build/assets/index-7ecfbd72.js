@@ -1,1 +1,0 @@
-import{V as o}from"./VerticalMenuContent-ec3061ca.js";import"./index-cd518a67.js";import"./navigation-icon.config-de1ffb4c.js";import"./SidePanel-01371f62.js";import"./Views-bb2b2b8f.js";export{o as default};
