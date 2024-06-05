@@ -1,0 +1,1 @@
+import{u as r,an as n,r as o,j as e}from"./index-cd518a67.js";const m=()=>{const{user_type:s}=r(a=>a.auth.user),t=n();return o.useEffect(()=>{s==="admin"&&t("/team-members")},[s]),e.jsx(e.Fragment,{children:e.jsx("p",{children:"Coming Soon"})})};export{m as default};
